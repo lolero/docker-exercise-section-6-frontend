@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile-dev -t lolero/docker-excercise-section-6-frontend .
+
+script:
+  - docker run -e ci=true lolero/docker-excercise-section-6-frontend yarn run test
